@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+       <meta charset="UTF-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+       <title>EMS Site</title>
+       <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+       <style>
+              body{
+                     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+              }
+       </style> 
+</head>
+<body>
+      <div class="container">
+       <div class="row">
+              <div class="col-sm-12 mt-2">
+                     <div class="alert alert-danger mt-4">
+                            <h2 class="text-center">EMPLOYEE MANAGEMENT SYSTEM</h2>
+                     </div>
+              </div>
+       </div>
+       <div class="row mt-4">
+              <div class="col-sm-8">
+                     <table class="table">
+                            <thead>
+                                   <tr class="table-dark text-center">
+                                          <th>Id</th>
+                                          <th>Name</th>
+                                          <th>Designation</th>
+                                          <th>Email</th>
+                                          <th>salary</th>
+                                          <th>Action</th>
+                                   </tr>
+                            </thead>
+                            <tbody>
+                                   {% for i in ab %}
+                                   
+                                   <tr class="text-center">
+                                          <td>{{i.id}}</td>
+                                          <td>{{i.name}}</td>
+                                          <td>{{i.designation}}</td>
+                                          <td>{{i.email}}</td>
+                                          <td>{{i.salary}}</td>
+                                          <td>
+                                                 <span><a href=""><i class="fa-solid fa-trash" style="color: #ff0000;"></i></a></span>&nbsp;&nbsp;&nbsp;
+                                                 <span><a href=""><i class="fa-solid fa-pen-to-square" style="color: #00ff00;"></i></a></span>
+                                          </td>
+                                         
+                                   </tr>
+                                   {% endfor %}
+                            </tbody>
+                     </table>
+              </div>
+              <div class="col-sm-4 border rounded-3 shadow bg-white p-5">
+                     <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="row ">
+                                   <div class="col-sm-12 ">
+                                          <p>Enter your Name:</p>
+                                          <input type="text" name="name" id="" class="form-control">
+                                   </div>
+                                   <div class="col-sm-12 ">
+                                          <p>Enter your Designation:</p>
+                                          <input type="text" name="designation" id="" class="form-control">
+                                   </div>
+                                   <div class="col-sm-12 ">
+                                          <p>Enter your email address:</p>
+                                          <input type="text" name="email" id="" class="form-control">
+                                   </div>
+                                   <div class="col-sm-12">
+                                          <p>Enter your Salary:</p>
+                                          <input type="number" name="salary" id="" class="form-control">
+                                   </div>
+                                   
+                                   <div class="col-sm-12 mt-4">
+                                          <input type="submit" class="btn btn-success w-100">
+                                         
+                                   </div>
+                            </div>
+                     </form>
+              </div>
+
+       </div>
+      </div>
+</body>
+</html>
